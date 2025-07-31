@@ -9,11 +9,12 @@ window.addEventListener('scroll', () => {
   });
   
   // Scroll spy - highlight nav links on scroll
-  const sections = document.querySelectorAll('section, #hero');
+  const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('.nav-link');
   
   function changeActiveLink() {
     let index = sections.length;
+  
     while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
   
     navLinks.forEach(link => link.classList.remove('active'));
@@ -24,7 +25,7 @@ window.addEventListener('scroll', () => {
   window.addEventListener('scroll', changeActiveLink);
   
   // Lightbox Gallery
-  const galleryImages = document.querySelectorAll('.gallery img');
+  const galleryImages = document.querySelectorAll('.gallery-grid img');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxClose = document.getElementById('lightbox-close');
@@ -48,71 +49,79 @@ window.addEventListener('scroll', () => {
     }
   });
   
-  // Language Switcher (Basic example, only text swapping)
+  // Language Switcher (Basic example, toggling text in body)
   const langSwitcher = document.getElementById('lang-switcher');
   let isEnglish = true;
   
   const translations = {
-    "Explore Paradise Island": "සන්සුන් දූපත සොයා යන්න",
-    "Discover the beauty of Sri Lanka’s beaches, hills, and heritage": "ශ්‍රී ලංකාවේ වෙරළ, කඳු, සහ උරුමයේ සුන්දරත්වය සොයා ගන්න",
-    "Start Your Journey": "ඔබේ ගමන ආරම්භ කරන්න",
+    "Explore Beautiful Sri Lanka": "සුන්දර ශ්‍රී ලංකාව සොයා ගන්න",
+    "Your next adventure starts here!": "ඔබේ ඊළඟ සන්සන්දනය මෙතැනින් ආරම්භ වේ!",
+    "Discover More": "තව විස්තර බලන්න",
     "Top Destinations": "ප්‍රධාන ගමනාන්ත",
     "Sigiriya": "සීගිරිය",
-    "Ancient rock fortress and UNESCO World Heritage Site.": "පුරාතන ගල් තොට සහ UNESCO ලෝක උරුම ස්ථානය.",
-    "Colombo": "කොළඹ",
-    "Vibrant capital city with culture, food, and nightlife.": "සංස්කෘතිය, ආහාර, සහ රාත්‍රී ජීවිතය ඇති සක්‍රීය අගනුවර.",
     "Ella": "ඇල්ල",
-    "Hill country with waterfalls, tea estates, and adventure.": "දිය ඇලි, තේ වතු, සහ සහසිකත්වය ඇති කඳුකරය.",
+    "Galle Fort": "ගාල්ල යාබද ගල් භවනය",
     "Tour Packages": "සංචාර පැකේජ",
-    "Adventure Package": "සහාසික පැකේජය",
-    "Hiking, rafting, and wildlife safaris across Sri Lanka.": "ශ්‍රී ලංකාව පුරා පැදුරුම්, රැෆ්ටින්, සහ වනාන්තර සෙරීපිලි.",
-    "Price:": "මිල:",
-    "Beach Holiday": "වෙරළ නිවාඩුව",
-    "Relax on the best beaches with luxury resorts.": "ප්‍රමුඛ වෙරළවල් සහ සුඛෝපභෝගී හෝටල් වල විවේකය ගන්න.",
-    "Cultural Tour": "සංස්කෘතික සංචාරය",
-    "Explore heritage sites, temples, and traditional villages.": "උරුම ස්ථාන, පන්සල්, සහ සම්ප්‍රදායික ගම්මාන සෙවීම.",
-    "Gallery": "ගැලරිය",
+    "Adventure Tour": "සහාසික සංචාරය",
+    "7 Days | Mountains & Hikes": "දින 7 | කඳු සහ පාදගාමීත්වය",
+    "Beach Relaxation": "වෙරළ විවේකය",
+    "5 Days | Coastal Getaways": "දින 5 | වෙරළ ආසන්නය",
+    "Cultural Trail": "සංස්කෘතික මාර්ගය",
+    "10 Days | Heritage & History": "දින 10 | උරුමය සහ ඉතිහාසය",
+    "Photo Gallery": "ඡායාරූප ගැලරිය",
     "Book Your Tour": "ඔබේ සංචාරය ඇනවුම් කරන්න",
-    "Choose Package:": "පැකේජය තෝරන්න:",
-    "Your Full Name:": "ඔබේ සම්පූර්ණ නම:",
-    "Email Address:": "ඊමේල් ලිපිනය:",
-    "Choose Date:": "දිනය තෝරන්න:",
-    "Choose Payment Method:": "ගෙවීම් ක්‍රමය තෝරන්න:",
-    "Select a package": "පැකේජයක් තෝරන්න",
-    "Select a payment method": "ගෙවීම් ක්‍රමයක් තෝරන්න",
-    "Book Now": "දැන් ඇනවුම් කරන්න",
+    "Full Name": "සම්පූර්ණ නම",
+    "Email Address": "ඊමේල් ලිපිනය",
+    "Select Package": "පැකේජය තෝරන්න",
+    "Choose Payment Method": "ගෙවීම් ක්‍රමය තෝරන්න",
+    "Submit": "ඇතුළත් කරන්න",
     "Contact Us": "අප අමතන්න",
     "Your Name": "ඔබේ නම",
-    "Email": "ඊමේල්",
+    "Your Email": "ඔබේ ඊමේල්",
     "Your Message": "ඔබේ පණිවිඩය",
     "Send Message": "පණිවිඩය යවන්න",
-    "Sri Lanka Tours": "ශ්‍රී ලංකා සංචාර",
-    "Home": "මුල් පිටුව",
-    "Destinations": "ගමනාන්ත",
-    "Tour Packages": "සංචාර පැකේජ",
-    "Gallery": "ගැලරිය",
-    "Booking": "ඇනවුම් කිරීම",
-    "Contact": "සම්බන්ධවන්න",
     "All rights reserved.": "සියලුම හිමිකම් ඇවිරිණි."
   };
   
   langSwitcher.addEventListener('click', () => {
     isEnglish = !isEnglish;
     if (isEnglish) {
-      langSwitcher.textContent = "EN | සිං";
-      Object.keys(translations).forEach(text => {
-        document.body.innerHTML = document.body.innerHTML.replace(translations[text], text);
-      });
+      langSwitcher.textContent = "🌐 EN | සිං";
+      swapLanguage('en');
     } else {
-      langSwitcher.textContent = "සිං | EN";
-      Object.keys(translations).forEach(text => {
-        document.body.innerHTML = document.body.innerHTML.replace(text, translations[text]);
-      });
+      langSwitcher.textContent = "🌐 සිං | EN";
+      swapLanguage('si');
     }
   });
   
+  function swapLanguage(lang) {
+    // For demo: swap fixed text nodes only by simple querySelectorAll for these texts
+    // This is a simple toggle example and can be improved for large apps.
+    const elements = document.querySelectorAll('h2, h3, p, button, input[placeholder], textarea[placeholder], label');
+  
+    elements.forEach(el => {
+      // Replace placeholders separately for input and textarea
+      if (el.placeholder) {
+        if (lang === 'si' && translations[el.placeholder]) {
+          el.placeholder = translations[el.placeholder];
+        } else if (lang === 'en' && Object.values(translations).includes(el.placeholder)) {
+          // revert to English key
+          el.placeholder = Object.keys(translations).find(key => translations[key] === el.placeholder) || el.placeholder;
+        }
+      }
+      // Replace innerText for others
+      if (el.tagName !== 'INPUT' && el.tagName !== 'TEXTAREA') {
+        if (lang === 'si' && translations[el.innerText]) {
+          el.innerText = translations[el.innerText];
+        } else if (lang === 'en' && Object.values(translations).includes(el.innerText)) {
+          el.innerText = Object.keys(translations).find(key => translations[key] === el.innerText) || el.innerText;
+        }
+      }
+    });
+  }
+  
   // Booking form submit handler (dummy)
-  document.getElementById('booking-form')?.addEventListener('submit', function(e) {
+  document.getElementById('booking-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const packageSelected = this.package.value;
     const name = this.name.value;
@@ -124,7 +133,7 @@ window.addEventListener('scroll', () => {
   });
   
   // Contact form submit handler (dummy)
-  document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     alert('Thank you for contacting us! We will get back to you shortly.');
     this.reset();
