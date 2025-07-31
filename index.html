@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sri Lanka Tourism</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">TravelSL</div>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#destinations" class="nav-link">Destinations</a></li>
+      <li><a href="#packages" class="nav-link">Packages</a></li>
+      <li><a href="#gallery" class="nav-link">Gallery</a></li>
+      <li><a href="#booking" class="nav-link">Booking</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="language-switcher" onclick="toggleLanguage()">🌐</div>
+  </header>
+
+  <section id="home" class="hero">
+    <video autoplay muted loop class="background-video">
+      <source src="assets/srilanka-beach.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="hero-content">
+      <h2>Explore Beautiful Sri Lanka</h2>
+      <p>Your next adventure starts here!</p>
+      <button class="btn">Discover More</button>
+    </div>
+  </section>
+
+  <section id="destinations">
+    <h2>Top Destinations</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="assets/sigiriya.jpg" alt="Sigiriya" />
+        <h3>Sigiriya</h3>
+      </div>
+      <div class="card">
+        <img src="assets/ella.jpg" alt="Ella" />
+        <h3>Ella</h3>
+      </div>
+      <div class="card">
+        <img src="assets/galle.jpg" alt="Galle" />
+        <h3>Galle Fort</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="packages">
+    <h2>Tour Packages</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Adventure Tour</h3>
+        <p>7 Days | Mountains & Hikes</p>
+      </div>
+      <div class="card">
+        <h3>Beach Relaxation</h3>
+        <p>5 Days | Coastal Getaways</p>
+      </div>
+      <div class="card">
+        <h3>Cultural Trail</h3>
+        <p>10 Days | Heritage & History</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Photo Gallery</h2>
+    <div class="gallery-grid">
+      <img src="assets/photo1.jpg" alt="Gallery 1" />
+      <img src="assets/photo2.jpg" alt="Gallery 2" />
+      <img src="assets/photo3.jpg" alt="Gallery 3" />
+      <img src="assets/photo4.jpg" alt="Gallery 4" />
+    </div>
+  </section>
+
+  <section id="booking">
+    <h2>Book Your Tour</h2>
+    <form id="bookingForm">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <select required>
+        <option value="">Select Package</option>
+        <option>Adventure Tour</option>
+        <option>Beach Relaxation</option>
+        <option>Cultural Trail</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <input type="text" placeholder="Subject" />
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 TravelSL - All rights reserved.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
