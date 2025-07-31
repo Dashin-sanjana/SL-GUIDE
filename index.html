@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Explore the top destinations, tour packages, and adventures in Sri Lanka with TravelSL – your trusted tourism guide.">
+  <meta name="keywords" content="Sri Lanka, travel, tourism, packages, beaches, mountains, culture, booking">
+  <meta name="author" content="TravelSL">
   <title>Sri Lanka Tourism</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="navbar">
+  <header class="navbar" id="navbar">
     <div class="logo">TravelSL</div>
     <ul class="nav-links">
       <li><a href="#home" class="nav-link active">Home</a></li>
@@ -17,7 +20,7 @@
       <li><a href="#booking" class="nav-link">Booking</a></li>
       <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
-    <div class="language-switcher" onclick="toggleLanguage()">🌐</div>
+    <div class="language-switcher" id="lang-switcher">🌐 EN | සිං</div>
   </header>
 
   <section id="home" class="hero">
@@ -80,14 +83,21 @@
 
   <section id="booking">
     <h2>Book Your Tour</h2>
-    <form id="bookingForm">
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <select required>
+    <form id="booking-form">
+      <input name="name" type="text" placeholder="Full Name" required />
+      <input name="email" type="email" placeholder="Email Address" required />
+      <select name="package" required>
         <option value="">Select Package</option>
         <option>Adventure Tour</option>
         <option>Beach Relaxation</option>
         <option>Cultural Trail</option>
+      </select>
+      <input name="date" type="date" required />
+      <select name="payment" required>
+        <option value="">Choose Payment Method</option>
+        <option>Credit Card</option>
+        <option>Bank Transfer</option>
+        <option>PayPal</option>
       </select>
       <button type="submit">Submit</button>
     </form>
@@ -95,10 +105,10 @@
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <form id="contactForm">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <input type="text" placeholder="Subject" />
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
@@ -106,6 +116,11 @@
   <footer>
     &copy; 2025 TravelSL - All rights reserved.
   </footer>
+
+  <div id="lightbox" class="lightbox">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Lightbox Image" />
+  </div>
 
   <script src="script.js"></script>
 </body>
