@@ -2,77 +2,85 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Explore the top destinations, tour packages, and adventures in Sri Lanka with TravelSL – your trusted tourism guide.">
-  <meta name="keywords" content="Sri Lanka, travel, tourism, packages, beaches, mountains, culture, booking">
-  <meta name="author" content="TravelSL">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sri Lanka Tourism</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="navbar" id="navbar">
-    <div class="logo">TravelSL</div>
+    <div class="logo"><a href="#home" data-key="logo">TravelSL</a></div>
     <ul class="nav-links">
-      <li><a href="#home" class="nav-link active">Home</a></li>
-      <li><a href="#destinations" class="nav-link">Destinations</a></li>
-      <li><a href="#packages" class="nav-link">Packages</a></li>
-      <li><a href="#gallery" class="nav-link">Gallery</a></li>
-      <li><a href="#booking" class="nav-link">Booking</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <li><a href="#home" class="nav-link active" data-key="home">Home</a></li>
+      <li><a href="#destinations" class="nav-link" data-key="destinations">Destinations</a></li>
+      <li><a href="#packages" class="nav-link" data-key="packages">Packages</a></li>
+      <li><a href="#gallery" class="nav-link" data-key="gallery">Gallery</a></li>
+      <li><a href="#booking" class="nav-link" data-key="booking">Booking</a></li>
+      <li><a href="#contact" class="nav-link" data-key="contact">Contact</a></li>
     </ul>
-    <div class="language-switcher" id="lang-switcher">🌐 EN | සිං</div>
+    <button class="language-switcher" style="cursor:pointer; margin-left: 20px;" data-key="changeLanguage">Change Language</button>
   </header>
 
   <section id="home" class="hero">
-    <video autoplay muted loop class="background-video">
+    <video autoplay muted loop class="background-video" playsinline>
       <source src="assets/srilanka-beach.mp4" type="video/mp4" />
-      Your browser does not support HTML5 video.
     </video>
     <div class="hero-content">
-      <h2>Explore Beautiful Sri Lanka</h2>
-      <p>Your next adventure starts here!</p>
-      <button class="btn">Discover More</button>
+      <h2 data-key="heroTitle">Explore Beautiful Sri Lanka</h2>
+      <p data-key="heroSubtitle">Your next adventure starts here!</p>
+      <button class="btn" onclick="scrollToSection('destinations')" data-key="discoverBtn">Discover More</button>
     </div>
   </section>
 
   <section id="destinations">
-    <h2>Top Destinations</h2>
+    <h2 data-key="topDestinations">Top Destinations</h2>
     <div class="cards">
-      <div class="card">
+      <a href="sigiriya.html" class="card">
         <img src="assets/sigiriya.jpg" alt="Sigiriya" />
-        <h3>Sigiriya</h3>
-      </div>
-      <div class="card">
+        <h3 data-key="sigiriya">Sigiriya</h3>
+      </a>
+      <a href="ella.html" class="card">
         <img src="assets/ella.jpg" alt="Ella" />
-        <h3>Ella</h3>
-      </div>
-      <div class="card">
-        <img src="assets/galle.jpg" alt="Galle" />
-        <h3>Galle Fort</h3>
-      </div>
+        <h3 data-key="ella">Ella</h3>
+      </a>
+      <a href="galle.html" class="card">
+        <img src="assets/galle.jpg" alt="Galle Fort" />
+        <h3 data-key="galle">Galle Fort</h3>
+      </a>
     </div>
   </section>
 
-  <section id="packages">
-    <h2>Tour Packages</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Adventure Tour</h3>
-        <p>7 Days | Mountains & Hikes</p>
+  <section id="packages" class="packages-section">
+    <h2 data-key="tourPackages">Tour Packages</h2>
+    <div class="package-grid">
+      <div class="package-card">
+        <img src="assets/adventure.jpg" alt="Adventure Tour" />
+        <div class="card-body">
+          <h3 data-key="adventureTour">Adventure Tour</h3>
+          <p data-key="adventureDesc">7 Days | Mountains & Hikes</p>
+          <a href="adventure-tour.html" class="btn" data-key="learnMore">Learn More</a>
+        </div>
       </div>
-      <div class="card">
-        <h3>Beach Relaxation</h3>
-        <p>5 Days | Coastal Getaways</p>
+      <div class="package-card">
+        <img src="assets/beach.jpg" alt="Beach Relaxation" />
+        <div class="card-body">
+          <h3 data-key="beachRelaxation">Beach Relaxation</h3>
+          <p data-key="beachDesc">5 Days | Coastal Getaways</p>
+          <a href="beach-relaxation.html" class="btn" data-key="learnMore">Learn More</a>
+        </div>
       </div>
-      <div class="card">
-        <h3>Cultural Trail</h3>
-        <p>10 Days | Heritage & History</p>
+      <div class="package-card">
+        <img src="assets/cultural.jpg" alt="Cultural Trail" />
+        <div class="card-body">
+          <h3 data-key="culturalTrail">Cultural Trail</h3>
+          <p data-key="culturalDesc">10 Days | Heritage & History</p>
+          <a href="cultural-trail.html" class="btn" data-key="learnMore">Learn More</a>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="gallery">
-    <h2>Photo Gallery</h2>
+    <h2 data-key="photoGallery">Photo Gallery</h2>
     <div class="gallery-grid">
       <img src="assets/photo1.jpg" alt="Gallery 1" />
       <img src="assets/photo2.jpg" alt="Gallery 2" />
@@ -82,45 +90,39 @@
   </section>
 
   <section id="booking">
-    <h2>Book Your Tour</h2>
-    <form id="booking-form">
-      <input name="name" type="text" placeholder="Full Name" required />
-      <input name="email" type="email" placeholder="Email Address" required />
-      <select name="package" required>
-        <option value="">Select Package</option>
-        <option>Adventure Tour</option>
-        <option>Beach Relaxation</option>
-        <option>Cultural Trail</option>
+    <h2 data-key="bookingTitle">Book Your Tour</h2>
+    <form id="bookingForm" action="https://formspree.io/f/xwpqnrkv" method="POST">
+      <input type="text" name="name" placeholder="Full Name" data-key-placeholder="fullName" required />
+      <input type="email" name="email" placeholder="Email Address" data-key-placeholder="emailAddress" required />
+      <select name="package" data-key-placeholder="selectPackage" required>
+        <option value="" disabled selected>Select Package</option>
+        <option value="Adventure Tour" data-key-option="adventureTour">Adventure Tour</option>
+        <option value="Beach Relaxation" data-key-option="beachRelaxation">Beach Relaxation</option>
+        <option value="Cultural Trail" data-key-option="culturalTrail">Cultural Trail</option>
       </select>
-      <input name="date" type="date" required />
-      <select name="payment" required>
-        <option value="">Choose Payment Method</option>
-        <option>Credit Card</option>
-        <option>Bank Transfer</option>
-        <option>PayPal</option>
-      </select>
-      <button type="submit">Submit</button>
+      <button type="submit" class="btn" data-key="submitBtn">Submit</button>
     </form>
+    <div id="bookingMessage" class="message"></div>
   </section>
 
   <section id="contact">
-    <h2>Contact Us</h2>
-    <form id="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+    <h2 data-key="contactUs">Contact Us</h2>
+    <form id="contactForm" action="https://formspree.io/f/xwpqnrkv" method="POST">
+      <input type="text" name="from_name" placeholder="Your Name" data-key-placeholder="fullName" required />
+      <input type="email" name="from_email" placeholder="Your Email" data-key-placeholder="emailAddress" required />
+      <input type="text" name="subject" placeholder="Subject" data-key-placeholder="subject" />
+      <textarea name="message" rows="5" placeholder="Your Message" data-key-placeholder="yourMessage" required></textarea>
+      <input type="hidden" name="_subject" value="New Contact Message from TravelSL" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <button type="submit" class="btn" data-key="sendMessageBtn">Send Message</button>
     </form>
+    <div id="contactMessage" class="message"></div>
   </section>
 
   <footer>
     &copy; 2025 TravelSL - All rights reserved.
   </footer>
-
-  <div id="lightbox" class="lightbox">
-    <span id="lightbox-close">&times;</span>
-    <img id="lightbox-img" src="" alt="Lightbox Image" />
-  </div>
 
   <script src="script.js"></script>
 </body>
